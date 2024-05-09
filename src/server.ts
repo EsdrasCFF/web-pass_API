@@ -1,6 +1,5 @@
 import fastify from "fastify"
-import z from "zod"
-import { serializerCompiler, validatorCompiler, ZodTypeProvider } from "fastify-type-provider-zod";
+import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
 import { createEvent } from "./routes/create-event";
 
 const app = fastify()
