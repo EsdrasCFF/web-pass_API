@@ -6,3 +6,13 @@ Content-Type: application/json
   "details": "É so os índios mais pesados da tribu que incendeia!",
   "maximumAttendees": 250
 }
+
+###
+
+POST  http://localhost:3333/events/172fb824-6fc6-450a-83ae-86d3eebd0fc0/attendee
+Content-Type: application/json
+
+{
+  "name": "Esdras Castro",
+  "email": "esdras.cff@gmail.com"
+}
