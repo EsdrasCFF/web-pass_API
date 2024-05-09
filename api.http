@@ -2,14 +2,14 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "Batalha da Aldeia 8 Aniversario",
-  "details": "É so os índios mais pesados da tribu que incendeia!",
-  "maximumAttendees": 250
+  "title": "Teste",
+  "details": "teste",
+  "maximumAttendees": 1
 }
 
 ###
 
-POST  http://localhost:3333/events/172fb824-6fc6-450a-83ae-86d3eebd0fc0/attendee
+POST  http://localhost:3333/events/b9b7a0e4-8b39-4769-b55e-e72fc0ac1474/attendee
 Content-Type: application/json
 
 {
