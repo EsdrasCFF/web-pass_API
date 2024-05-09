@@ -7,7 +7,7 @@ export async function regiserForEvent(app:FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .post(
-      '/events/:eventId/attendees',
+      '/events/:eventId/attendee',
       
       {schema: {
         body: z.object({
