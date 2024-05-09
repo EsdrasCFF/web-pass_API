@@ -1,0 +1,9 @@
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+  "title": "Herdeiros 2024",
+  "details": "Um evento que pode mudar a sua vida!",
+  "maximumAttendees": 100
+  
+}
