@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
-import {z} from "zod";
+import z from "zod";
 import { prisma } from "../lib/prisma";
 
 export async function getEvent(app: FastifyInstance) {
@@ -14,7 +14,7 @@ export async function getEvent(app: FastifyInstance) {
           eventId: z.string().uuid()
         }),
         response: {
-          200: {
+          200: z.object({
             event: z.object({
               id: z.string().uuid(),
               title: z.string(),
@@ -22,8 +22,8 @@ export async function getEvent(app: FastifyInstance) {
               slug: z.string(),
               maximumAttendees: z.number().int().nullable(),
               attendeesAmount: z.number().int()
-            }) 
-          },
+            })
+          })
         },
       }
     }, 
@@ -46,11 +46,13 @@ export async function getEvent(app: FastifyInstance) {
         where: {id: eventId}
       })
 
-      if(event === null) {
+      if(!event) {
         throw new Error('Event not found')
       }
 
-      return response.code(201).send({
+
+      //Change code
+      return response.code(200).send({
         event: {
           id: event.id,
           title: event.title,
