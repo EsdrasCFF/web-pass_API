@@ -7,22 +7,24 @@ export async function getEvent(app: FastifyInstance) {
 
   app
   .withTypeProvider<ZodTypeProvider>()
-  .get('/event/:eventId', 
+  .get('/events/:eventId', 
     {
       schema: {
         params: z.object({
           eventId: z.string().uuid()
         }),
         response: {
-          event: {
-            id: z.string().uuid(),
-            title: z.string(),
-            details: z.string().nullable(),
-            slug: z.string(),
-            maximumAttendees: z.number().int().nullable(),
-            attendeesAmount: z.number().int()
-          }
-        }
+          200: {
+            event: z.object({
+              id: z.string().uuid(),
+              title: z.string(),
+              details: z.string().nullable(),
+              slug: z.string(),
+              maximumAttendees: z.number().int().nullable(),
+              attendeesAmount: z.number().int()
+            }) 
+          },
+        },
       }
     }, 
     async (request, response) => {
@@ -48,7 +50,7 @@ export async function getEvent(app: FastifyInstance) {
         throw new Error('Event not found')
       }
 
-      return response.code(200).send({
+      return response.code(201).send({
         event: {
           id: event.id,
           title: event.title,
