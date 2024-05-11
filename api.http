@@ -2,17 +2,22 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "Teste",
-  "details": "teste",
-  "maximumAttendees": 1
+  "title": "Coach School - Begin",
+  "details": "A Coach School, is a school for peoples that want to improve your personal performance ",
+  "maximumAttendees": 2
 }
 
 ###
 
-POST  http://localhost:3333/events/b9b7a0e4-8b39-4769-b55e-e72fc0ac1474/attendee
+POST  http://localhost:3333/events/d6d6c065-5f35-4495-8100-21ade307652a/attendee
 Content-Type: application/json
 
 {
-  "name": "Esdras Castro",
-  "email": "esdras.cff@gmail.com"
+  "name": "Micaelly Fontanesi",
+  "email": "micaelly@gmail.com"
 }
+
+###
+
+GET http://localhost:3333/event/all
+Content-Type: application/json
