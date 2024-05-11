@@ -29,7 +29,7 @@ export async function getEvent(app: FastifyInstance) {
     }, 
     async (request, response) => {
       const {eventId}  = request.params
-
+      
       const event = await prisma.event.findUnique({
         select: {
           id: true,
@@ -49,7 +49,6 @@ export async function getEvent(app: FastifyInstance) {
       if(!event) {
         throw new Error('Event not found')
       }
-
 
       //Change code
       return response.code(200).send({
