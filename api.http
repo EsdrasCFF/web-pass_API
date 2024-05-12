@@ -30,5 +30,10 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/attendees/2/check-in
+GET http://localhost:3333/attendees/5/check-in
+Content-Type: application/json
+
+###
+
+GET http://localhost:3333/events/172fb824-6fc6-450a-83ae-86d3eebd0fc0/attendees
 Content-Type: application/json
