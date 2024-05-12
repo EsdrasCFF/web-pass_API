@@ -9,6 +9,7 @@ import { getEventAttendees } from "./routes/getEventsAttendees";
 
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from '@fastify/swagger-ui'
+import { errorHandler } from "./error-handler";
 
 const app = fastify()
 
@@ -38,6 +39,8 @@ app.register(getEvent)
 app.register(getAttendeeBadge)
 app.register(checkIn)
 app.register(getEventAttendees)
+
+app.setErrorHandler(errorHandler)
 
 app.listen({port: 3333}).then(() => {
   console.log('Server is running')
