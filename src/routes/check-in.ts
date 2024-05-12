@@ -9,11 +9,13 @@ export async function checkIn(app: FastifyInstance) {
     .get('/attendees/:attendeeId/check-in', 
       {
         schema: {
+          summary: 'Attendee run checked in',
+          tags: ['check-in'],
           params: z.object({
             attendeeId: z.coerce.number().int()
           }),
           response: {
-            200: z.null
+            201: z.null()
           }
         }
       }, 
